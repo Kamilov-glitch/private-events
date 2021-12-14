@@ -1,24 +1,7 @@
-# README
+Project: Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I'm gonna build a site similar to a private Eventbrite (not when it comes to looks, but more like when it comes to functionality) which allows users to create events and then manage user signups.
 
-Things you may want to cover:
+A user can create events. A user can attend many events. An event can be attended by many users. Events take place at a specific date and at a location (which can be just stored as a string, like “Andy’s House”).
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project will require to model many-to-many relationships and also to be very conscious about foreign keys and class names.
