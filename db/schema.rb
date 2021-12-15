@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_12_14_153025) do
 
   create_table "event_participatings", force: :cascade do |t|
-    t.integer "participant_id"
-    t.integer "created_event_id"
+    t.integer "user_id"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_153025) do
     t.string "name"
     t.date "date"
     t.string "place"
-    t.integer "creator_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
