@@ -18,13 +18,18 @@
 
 <p>
   <strong>Attend this event:</strong>
-  <%= link_to "Join", new_event_participating_path %>
+  <%= link_to "Join", event_participatings_path(@event), method: "post" %>
 </p>
 
-<% @event.participants do |p| %>
-  <%= p.username %>
-<% end %>
 
+<div>
+  <% @events.each do |e| %>
+    <% e.participants.each do |p| %>
+      <p><%= p.username %></p>
+    <% end %>
+  <% end %>
+</div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<hr />
+<%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>
