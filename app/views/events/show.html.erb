@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -14,6 +15,16 @@
   <strong>Place:</strong>
   <%= @event.place %>
 </p>
+
+<p>
+  <strong>Attend this event:</strong>
+  <%= link_to "Join", new_event_participating_path %>
+</p>
+
+<% @event.participants do |p| %>
+  <%= p.username %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
