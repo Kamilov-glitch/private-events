@@ -21,6 +21,11 @@
   <%= link_to "Join", event_participatings_path(@event), method: "post" %>
 </p>
 
+<%= form_with model: EventParticipating.new do |form| %>
+  <%= form.hidden_field :event_id, value: @event.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Join", class: "button" %>
+<% end %>
 
 <div>
   <% @events.each do |e| %>
