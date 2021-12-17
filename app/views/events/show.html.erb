@@ -19,7 +19,7 @@
 <p>
   <strong>Attend this event:</strong>
 </p>
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user != @event.creator %>
   <% unless @event.participants.where(id: current_user.id).exists? %>
     <%= form_with model: EventParticipating.new do |form| %>
       <%= form.hidden_field :event_id, value: @event.id %>
@@ -34,7 +34,7 @@
     <%# <% end %>
     <% @event.event_participatings.each do |e| %>
       <% if e.user_id == current_user.id %>
-        <%= link_to "Disenroll", e, method: :delete %>
+        <%= link_to "Disenroll", e, method: :delete, class: "button" %>
       <% end %>
     <% end %>
   <% end %>
