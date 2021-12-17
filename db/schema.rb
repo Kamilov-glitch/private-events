@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_153025) do
+ActiveRecord::Schema.define(version: 2021_12_17_084500) do
 
   create_table "event_participatings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id", "user_id"], name: "index_event_participatings_on_event_id_and_user_id", unique: true
   end
 
   create_table "events", force: :cascade do |t|

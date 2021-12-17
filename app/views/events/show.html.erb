@@ -18,13 +18,25 @@
 
 <p>
   <strong>Attend this event:</strong>
-  <%= link_to "Join", event_participatings_path(@event), method: "post" %>
 </p>
 <% if user_signed_in? %>
-  <%= form_with model: EventParticipating.new do |form| %>
-    <%= form.hidden_field :event_id, value: @event.id %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.submit "Join", class: "button" %>
+  <% unless @event.participants.where(id: current_user.id).exists? %>
+    <%= form_with model: EventParticipating.new do |form| %>
+      <%= form.hidden_field :event_id, value: @event.id %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.submit "Enroll", class: "button" %>
+    <% end %>
+  <% else %>
+    <%# <%= form_with model: EventParticipating, method: :delete do |form| %>
+      <%# <%= form.hidden_field :event_id, value: @event.id %>
+      <%# <%= form.hidden_field :user_id, value: current_user.id %>
+      <%# <%= form.submit "Disenroll", class: "button" %>
+    <%# <% end %>
+    <% @event.event_participatings.each do |e| %>
+      <% if e.user_id == current_user.id %>
+        <%= link_to "Disenroll", e, method: :delete %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
