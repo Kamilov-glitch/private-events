@@ -1,5 +1,16 @@
 <h1>Users</h1>
 <% @users.each do |user| %>
-    <%= user.name %><br />
-    <%= user.username %>
+  <%= user.name %>
+  <%= user.username %>
+  <% user.participated_events.each do |e| %>
+    <% if e.created_at < Time.now %>
+      <p>This event(s) occured in past:</p>
+      <%= e.name %><br/>
+    <% else %>
+      <p>Upcoming events</p>
+      <%= e.name %><br/>
+    <% end %>
+  <% end %>
+  <hr />
 <% end %>
+<p><%= Time.now %></p>
