@@ -3,7 +3,7 @@
   <%= user.name %>
   <%= user.username %>
   <% user.participated_events.each do |e| %>
-    <% if e.created_at < Time.now %>
+    <% if e.date < Time.now %>
       <p>This event(s) occured in past:</p>
       <%= e.name %><br/>
     <% else %>
@@ -13,4 +13,3 @@
   <% end %>
   <hr />
 <% end %>
-<p><%= Time.now %></p>
