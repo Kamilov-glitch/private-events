@@ -41,11 +41,11 @@
 <% end %>
 
 <div>
-  <% @events.each do |e| %>
-    <% e.participants.each do |p| %>
+  <%# <% @events.each do |e| %>
+    <% @event.participants.each do |p| %>
       <p><%= p.username %></p>
     <% end %>
-  <% end %>
+  <%# <% end %> 
 </div>
 
 <hr />
