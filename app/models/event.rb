@@ -14,4 +14,8 @@ class Event < ApplicationRecord
     #   self.where("date > ?", Time.now)
     # end
 
+    def past_event?
+      self.date < Time.now
+    end
+
 end

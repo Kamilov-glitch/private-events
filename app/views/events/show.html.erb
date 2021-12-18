@@ -19,7 +19,7 @@
 <p>
   <strong>Attend this event:</strong>
 </p>
-<% if user_signed_in? && current_user != @event.creator %>
+<% if user_signed_in? && current_user != @event.creator && !@event.past_event? %>
   <% unless @event.participants.where(id: current_user.id).exists? %>
     <%= form_with model: EventParticipating.new do |form| %>
       <%= form.hidden_field :event_id, value: @event.id %>
